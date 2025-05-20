@@ -1,5 +1,6 @@
 package ru.novozhilov.service;
 
+import com.novozhilov.annotation.Timer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.novozhilov.model.Book;
@@ -12,7 +13,9 @@ public class BookService {
     @Autowired
     private BookRepository bookRepository;
 
-    public Book getRandomBook() {
+    @Timer
+    public Book getRandomBook() throws InterruptedException {
+        Thread.sleep(1000);
         return bookRepository.getRandomBook();
     }
 

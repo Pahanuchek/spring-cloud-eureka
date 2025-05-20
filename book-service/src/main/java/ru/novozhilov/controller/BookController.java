@@ -18,7 +18,7 @@ public class BookController {
     private BookService bookService;
 
     @GetMapping(value = "/random", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Book getRandomBook() {
+    public Book getRandomBook() throws InterruptedException {
         return bookService.getRandomBook();
     }
 
